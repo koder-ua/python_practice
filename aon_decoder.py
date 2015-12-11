@@ -13,7 +13,8 @@ def decode(string):
     - combine repeated characters (2333# -> 3)
     - remove single characters (1234 -> None)
     - repeat last character before "##"  (33## -> 33")
-    :param string:
+
+    :param string: string
     """
     # split all repeated symbols as a standalone strings
     grouped_string = []
