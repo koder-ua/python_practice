@@ -31,12 +31,13 @@ def test_gnome_sort():
     assert gnome_sort([10, -2, 6, 2, 2, 1]) == [-2, 1, 2, 2, 6, 10]
     assert gnome_sort([1]) == [1]
     assert gnome_sort([9, 8, 7, 6, 5, 4, 0, -1]) == [-1, 0, 4, 5, 6, 7, 8, 9]
+    assert gnome_sort([]) == []
 
     print("Passed successfully")
 
 
 def main():
-    """main"""
+    "main"
     test_gnome_sort()
     return 0
 

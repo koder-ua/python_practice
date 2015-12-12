@@ -17,7 +17,8 @@ def decode(string):
     :param string: string
     """
     # split all repeated symbols as a standalone strings
-    grouped_string = []
+    # string = ["".join(grp) for _, grp in itertools.groupby(string)]
+    splitted_string = []
     n = 0
     k = 0
     while n < len(string):
@@ -27,20 +28,21 @@ def decode(string):
             else:
                 break
         k += 1
-        grouped_string.append(string[n:k])
+        splitted_string.append(string[n:k])
         n = k
-    # get first character from standalone string + remove single characters
-    string = "".join([i[0] for i in grouped_string if len(i) != 1])
+    # get first character from splitted strings + remove single-length strings
+    string = "".join([i[0] for i in splitted_string if len(i) != 1])
     result = ""
     for i, v in enumerate(string):
-        if v != "#":
-            result += v
-        elif i != 0:
-            result += string[i - 1]
-        elif len(string) > 1:
-            result = ""
+        if v == "#":
+            if i == 0 and len(string) > 1:  # checking leading '#' in string
+                continue
+            elif i == 0:
+                return None
+            else:
+                result += string[i - 1]
         else:
-            result = None
+            result += string[i]
     return result
 
 
@@ -61,7 +63,7 @@ def test_decode():
 
 
 def main():
-    """main"""
+    "main"
     test_decode()
     return 0
 
