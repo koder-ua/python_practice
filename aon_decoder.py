@@ -15,6 +15,7 @@ def decode(string):
     - repeat last character before "##"  (33## -> 33")
 
     :param string: string
+    :return string: processed string
     """
     # split all repeated symbols as a standalone strings
     # string = ["".join(grp) for _, grp in itertools.groupby(string)]

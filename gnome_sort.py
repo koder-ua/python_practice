@@ -9,9 +9,10 @@ Slide #9
 
 def gnome_sort(array):
     """
-    Gnome sort implementation
+    Gnome sort
 
     :param array: list of int
+    :return: sorted array
     """
     i = 0
     while i < len(array)-1:
